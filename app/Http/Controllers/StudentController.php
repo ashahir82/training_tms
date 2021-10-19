@@ -14,9 +14,10 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return view('student.index');
+        $pageTitle = 'Students';
+        $subTitle = 'List of active students';
+        return view('student.index', compact('pageTitle', 'subTitle'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +26,9 @@ class StudentController extends Controller
     public function create()
     {
         //
-        return view('student.create');
+        $pageTitle = 'Students';
+        $subTitle = 'List of active students';
+        return view('student.create', compact('pageTitle', 'subTitle'));
 
     }
 
@@ -50,7 +53,9 @@ class StudentController extends Controller
     public function show($id)
     {
         //
-        return 'show ui ' . $id;
+        $pageTitle = 'Students';
+        $subTitle = 'List of active students';
+        return view('student.show', compact('pageTitle', 'subTitle'));
     }
 
     /**
@@ -62,7 +67,9 @@ class StudentController extends Controller
     public function edit($id)
     {
         //
-        return view('student.edit');
+        $pageTitle = 'Students';
+        $subTitle = 'List of active students';
+        return view('student.edit', compact('pageTitle', 'subTitle'));
     }
 
     /**
