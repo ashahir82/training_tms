@@ -27,7 +27,7 @@ class StudentController extends Controller
     {
         //
         $pageTitle = 'Students';
-        $subTitle = 'List of active students';
+        $subTitle = 'Add new student';
         return view('student.create', compact('pageTitle', 'subTitle'));
 
     }
@@ -41,7 +41,8 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
-        return $request->name . ' ' . $request->url;
+        // return $request->name . ' ' . $request->url;
+        return redirect()->route('student.index');
     }
 
     /**
@@ -54,7 +55,7 @@ class StudentController extends Controller
     {
         //
         $pageTitle = 'Students';
-        $subTitle = 'List of active students';
+        $subTitle = 'Student details';
         return view('student.show', compact('pageTitle', 'subTitle'));
     }
 
@@ -68,7 +69,7 @@ class StudentController extends Controller
     {
         //
         $pageTitle = 'Students';
-        $subTitle = 'List of active students';
+        $subTitle = 'Edit student details';
         return view('student.edit', compact('pageTitle', 'subTitle'));
     }
 
@@ -82,7 +83,8 @@ class StudentController extends Controller
     public function update(Request $request, $id)
     {
         //
-        return $request->name . ' for student ID ' . $id;
+        // return $request->name . ' for student ID ' . $id;
+        return redirect()->route('student.index');
     }
 
     /**

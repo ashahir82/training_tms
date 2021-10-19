@@ -22,9 +22,9 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
+          <li class="nav-item {{ (request()->segment(1) == 'student') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link  {{ (request()->segment(1) == 'student') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-user-graduate"></i>
               <p>
                 Student
                 <i class="fas fa-angle-left right"></i>
@@ -32,14 +32,37 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('student.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="{{ route('student.index') }}" class="nav-link {{ (request()->route()->named('student.index')) ? 'active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('student.create') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="{{ route('student.create') }}" class="nav-link {{ (request()->route()->named('student.create')) ? 'active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Create</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item {{ (request()->segment(1) == 'course') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ (request()->segment(1) == 'course') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-school"></i>
+              <p>
+                Course
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('student.index') }}" class="nav-link {{ (request()->route()->named('student.index')) ? 'active' : '' }}">
+                  <i class="fas fa-list nav-icon"></i>
+                  <p>List</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('student.create') }}" class="nav-link {{ (request()->route()->named('student.create')) ? 'active' : '' }}">
+                  <i class="fas fa-plus nav-icon"></i>
                   <p>Create</p>
                 </a>
               </li>
