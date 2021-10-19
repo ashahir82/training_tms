@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TempahanKenderaanControlller;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +26,20 @@ Route::get('tempahan-kenderaan', [TempahanKenderaanControlller::class, 'index'])
 /**
  * Route Student
  */
-Route::get('/student', [StudentController::class, 'index']);
-Route::get('/student/create', [StudentController::class, 'create']);
-Route::get('/student/show/{id}', [StudentController::class, 'show']);
-Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
+// Route::get('/', [StudentController::class, 'index']);
+// Route::get('/create', [StudentController::class, 'create']);
+// Route::get('/show/{id}', [StudentController::class, 'show']);
+// Route::get('/edit/{id}', [StudentController::class, 'edit']);
 
-Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
-Route::post('/student/update/{id}', [StudentController::class, 'update']);
+// Route::post('/store', [StudentController::class, 'store'])->name('student.store');
+// Route::post('/update/{id}', [StudentController::class, 'update']);
+
+Route::prefix('student')->as('student.')->group(function(){
+    Route::get('/', [StudentController::class, 'index']);
+    Route::get('/create', [StudentController::class, 'create']);
+    Route::get('/show/{id}', [StudentController::class, 'show']);
+    Route::get('/edit/{id}', [StudentController::class, 'edit']);
+
+    Route::post('/store', [StudentController::class, 'store'])->name('store');
+    Route::post('/update/{id}', [StudentController::class, 'update']);
+});
