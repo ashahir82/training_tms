@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TempahanKenderaanControlller;
 use Illuminate\Routing\RouteGroup;
@@ -42,4 +43,14 @@ Route::prefix('student')->as('student.')->group(function(){
 
     Route::post('/store', [StudentController::class, 'store'])->name('store');
     Route::post('/update/{id}', [StudentController::class, 'update'])->name('update');
+});
+
+Route::prefix('course')->as('course.')->group(function(){
+    Route::get('/', [CourseController::class, 'index'])->name('index');
+    Route::get('/create', [CourseController::class, 'create'])->name('create');
+    Route::get('/show/{id}', [CourseController::class, 'show'])->name('show');
+    Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('edit');
+
+    Route::post('/store', [CourseController::class, 'store'])->name('store');
+    Route::post('/update/{id}', [CourseController::class, 'update'])->name('update');
 });

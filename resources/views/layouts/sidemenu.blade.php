@@ -55,13 +55,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('student.index') }}" class="nav-link {{ (request()->route()->named('student.index')) ? 'active' : '' }}">
+                <a href="{{ route('course.index') }}" class="nav-link {{ (request()->route()->named('course.index')) ? 'active' : '' }}">
                   <i class="fas fa-list nav-icon"></i>
                   <p>List</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('student.create') }}" class="nav-link {{ (request()->route()->named('student.create')) ? 'active' : '' }}">
+                <a href="{{ route('course.create') }}" class="nav-link {{ (request()->route()->named('course.create')) ? 'active' : '' }}">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Create</p>
                 </a>
