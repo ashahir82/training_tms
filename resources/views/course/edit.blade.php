@@ -14,11 +14,40 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ url('course/update/01220123') }}" method="POST">
+                            <form action="{{ route('course.update', $course->id) }}" method="POST">
                                 @csrf
-                                <label for="name">Nama</label>
-                                <input type="text" name="name" value="shahir">
-                                <button type="submit">Update</button>
+                                <div class="form-group row">
+                                    <label for="code" class="col-sm-2 col-form-label">Code</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="code" name="code"
+                                            value="{{ $course->code }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            value="{{ $course->name }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="description" name="description"
+                                            value="{{ $course->description }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="is_active" class="col-sm-2 col-form-label">Status</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="is_active" name="is_active"
+                                            value="{{ $course->is_active }}">
+                                    </div>
+                                </div>
+                                <div>
+                                    <a class="btn btn-success" href="{{ route('course.index') }}" role="button"><i class="fas fa-arrow-circle-left"></i></a>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
                             </form>
                         </div>
                         <!-- /.card-body -->

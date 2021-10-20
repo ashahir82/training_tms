@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -14,9 +15,10 @@ class CourseController extends Controller
     public function index()
     {
         //
+        $courses = Course::all();
         $pageTitle = 'Courses';
         $subTitle = 'List of active course';
-        return view('course.index', compact('pageTitle', 'subTitle'));
+        return view('course.index', compact('pageTitle', 'subTitle', 'courses'));
     }
     /**
      * Show the form for creating a new resource.
@@ -42,6 +44,12 @@ class CourseController extends Controller
     {
         //
         // return $request->name . ' ' . $request->url;
+        $course = new Course();
+        $course->code = $request->input('code');
+        $course->name = $request->input('name');
+        $course->description = $request->input('description');
+        $course->is_active = $request->input('is_active');
+        $course->save();
         return redirect()->route('course.index');
     }
 
@@ -54,9 +62,10 @@ class CourseController extends Controller
     public function show($id)
     {
         //
+        $course = Course::findOrFail($id);
         $pageTitle = 'Courses';
         $subTitle = 'Course details';
-        return view('course.show', compact('pageTitle', 'subTitle'));
+        return view('course.show', compact('pageTitle', 'subTitle', 'course'));
     }
 
     /**
@@ -68,9 +77,10 @@ class CourseController extends Controller
     public function edit($id)
     {
         //
+        $course = Course::findOrFail($id);
         $pageTitle = 'Courses';
         $subTitle = 'Edit course details';
-        return view('course.edit', compact('pageTitle', 'subTitle'));
+        return view('course.edit', compact('pageTitle', 'subTitle', 'course'));
     }
 
     /**
@@ -83,7 +93,12 @@ class CourseController extends Controller
     public function update(Request $request, $id)
     {
         //
-        // return $request->name . ' for student ID ' . $id;
+        $course = Course::findOrFail($id);
+        $course->code = $request->input('code');
+        $course->name = $request->input('name');
+        $course->description = $request->input('description');
+        $course->is_active = $request->input('is_active');
+        $course->save();
         return redirect()->route('course.index');
     }
 
@@ -96,5 +111,8 @@ class CourseController extends Controller
     public function destroy($id)
     {
         //
+        $course = Course::findOrFail($id);
+        $course->delete();
+        return redirect()->route('course.index');
     }
 }

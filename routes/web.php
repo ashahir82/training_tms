@@ -40,6 +40,8 @@ Route::prefix('student')->as('student.')->group(function(){
     Route::get('/create', [StudentController::class, 'create'])->name('create');
     Route::get('/show/{id}', [StudentController::class, 'show'])->name('show');
     Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('edit');
+    Route::get('/destroy/{id}', [StudentController::class, 'destroy'])->name('destroy');
+
 
     Route::post('/store', [StudentController::class, 'store'])->name('store');
     Route::post('/update/{id}', [StudentController::class, 'update'])->name('update');
@@ -50,6 +52,7 @@ Route::prefix('course')->as('course.')->group(function(){
     Route::get('/create', [CourseController::class, 'create'])->name('create');
     Route::get('/show/{id}', [CourseController::class, 'show'])->name('show');
     Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('edit');
+    Route::get('/destroy/{id}', [CourseController::class, 'destroy'])->name('destroy');
 
     Route::post('/store', [CourseController::class, 'store'])->name('store');
     Route::post('/update/{id}', [CourseController::class, 'update'])->name('update');
