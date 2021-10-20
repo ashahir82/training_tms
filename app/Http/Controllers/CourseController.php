@@ -14,7 +14,7 @@ class CourseController extends Controller
     public function index()
     {
         //
-        $pageTitle = 'Course';
+        $pageTitle = 'Courses';
         $subTitle = 'List of active course';
         return view('course.index', compact('pageTitle', 'subTitle'));
     }
@@ -26,7 +26,7 @@ class CourseController extends Controller
     public function create()
     {
         //
-        $pageTitle = 'Course';
+        $pageTitle = 'Courses';
         $subTitle = 'Add new course';
         return view('course.create', compact('pageTitle', 'subTitle'));
 
@@ -54,7 +54,7 @@ class CourseController extends Controller
     public function show($id)
     {
         //
-        $pageTitle = 'Course';
+        $pageTitle = 'Courses';
         $subTitle = 'Course details';
         return view('course.show', compact('pageTitle', 'subTitle'));
     }
@@ -68,7 +68,7 @@ class CourseController extends Controller
     public function edit($id)
     {
         //
-        $pageTitle = 'Course';
+        $pageTitle = 'Courses';
         $subTitle = 'Edit course details';
         return view('course.edit', compact('pageTitle', 'subTitle'));
     }
