@@ -46,15 +46,20 @@
                                 <div class="form-group row">
                                     <label for="gender" class="col-sm-2 col-form-label">Gender</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="gender"
-                                            value="{{ $student->gender }}">
+                                        <select name="gender" class="form-control-plaintext" id="gender" readonly>
+                                            <option @if ($student->gender == 'male') selected @endif value="male">Male</option>
+                                            <option @if ($student->gender == 'female') selected @endif value="female">Female</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="course_id" class="col-sm-2 col-form-label">Course</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="course_id"
-                                            value="{{ $student->course_id }}">
+                                        <select name="course_id" class="form-control-plaintext" id="course_id" readonly>
+                                            @foreach($courses as $course)
+                                                <option @if ($student->course_id == $course->id) selected @endif value="{{ $course->id }}">{{ $course->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div>

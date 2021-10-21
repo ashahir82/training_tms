@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,10 @@ class StudentController extends Controller
     public function create()
     {
         //
+        $courses = Course::all();
         $pageTitle = 'Students';
         $subTitle = 'Add new student';
-        return view('student.create', compact('pageTitle', 'subTitle'));
+        return view('student.create', compact('pageTitle', 'subTitle', 'courses'));
 
     }
 
@@ -72,9 +74,10 @@ class StudentController extends Controller
     {
         //
         $student = Student::findOrFail($id);
+        $courses = Course::all();
         $pageTitle = 'Students';
         $subTitle = 'Student details';
-        return view('student.show', compact('pageTitle', 'subTitle', 'student'));
+        return view('student.show', compact('pageTitle', 'subTitle', 'student', 'courses'));
     }
 
     /**
@@ -87,9 +90,10 @@ class StudentController extends Controller
     {
         //
         $student = Student::findOrFail($id);
+        $courses = Course::all();
         $pageTitle = 'Students';
         $subTitle = 'Edit student details';
-        return view('student.edit', compact('pageTitle', 'subTitle', 'student'));
+        return view('student.edit', compact('pageTitle', 'subTitle', 'student', 'courses'));
     }
 
     /**

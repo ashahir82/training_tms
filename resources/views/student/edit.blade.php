@@ -62,8 +62,10 @@
                                         <span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="gender" name="gender"
-                                            value="{{ $student->gender }}" required>
+                                        <select name="gender" class="form-control" id="gender" required>
+                                            <option @if ($student->gender == 'male') selected @endif value="male">Male</option>
+                                            <option @if ($student->gender == 'female') selected @endif value="female">Female</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -72,8 +74,11 @@
                                         <span class="text-danger"> * </span>
                                     </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="course_id" name="course_id"
-                                            value="{{ $student->course_id }}" required>
+                                        <select name="course_id" class="form-control" id="course_id" required>
+                                            @foreach($courses as $course)
+                                                <option @if ($student->course_id == $course->id) selected @endif value="{{ $course->id }}">{{ $course->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div>
