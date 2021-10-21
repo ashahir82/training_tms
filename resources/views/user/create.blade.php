@@ -17,27 +17,36 @@
                             <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                    <label for="name" class="col-sm-2 col-form-label">
+                                        Name
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name">
+                                        <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                                    <label for="email" class="col-sm-2 col-form-label">
+                                        Email
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="email" name="email">
+                                        <input type="text" class="form-control" id="email" name="email" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
+                                    <label for="password" class="col-sm-2 col-form-label">
+                                        Password
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="password" name='password'>
+                                        <input type="text" class="form-control" id="password" name='password' required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="profile_img" class="col-sm-2 col-form-label">Profile Image</label>
                                     <div class="col-sm-10">
-                                        <input type="file" class="form-control" id="profile_img" name='profile_img'>
+                                        <input type="file" class="form-control-file" id="profile_img" name='profile_img'>
                                     </div>
                                 </div>
                                 <div>

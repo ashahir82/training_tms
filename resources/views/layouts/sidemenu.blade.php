@@ -75,7 +75,7 @@
                 </li>
                 <li class="nav-item {{ request()->segment(1) == 'user' ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ request()->segment(1) == 'user' ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-school"></i>
+                        <i class="fas fa-users"></i>
                         <p>
                             Profile
                             <i class="fas fa-angle-left right"></i>

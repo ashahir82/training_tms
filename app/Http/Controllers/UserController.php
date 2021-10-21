@@ -78,7 +78,7 @@ class UserController extends Controller
         //
         $user = User::findOrFail($id);
         $pageTitle = 'Users';
-        $subTitle = 'user details';
+        $subTitle = 'User details';
         return view('user.show', compact('pageTitle', 'subTitle', 'user'));
     }
 
@@ -110,12 +110,22 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = $request->input('password');
-        $user->profile_img = $request->input('profile_img');
-        // $course->save();
-        // return redirect()->route('course.index');
+        if($request->input('password')) {
+            $user->password = Hash::make($request->input('password'));
+        }
+        $user->save();
+
+        if(filled($request->file('profile_img'))) {
+            $path = $request->file('profile_img')
+            ->storeAs('public/files/user', $user->id . '.' . $request->file('profile_img')->extension());
+
+            $path = \Str::of($path)->replace('public', 'storage');
+
+            $user->profile_img = $path;
+        }
+
         if ($user->save()) {
-            return redirect()->route('user.index')->with('successMessage','user has been successfully updated');
+            return redirect()->route('user.index')->with('successMessage','User has been successfully updated');
         } else {
             return back()->with('errorMessage','Unable to update user into database. Contact admin');
         }
@@ -134,7 +144,7 @@ class UserController extends Controller
         // $course->delete();
         // return redirect()->route('course.index');
         if ($user->delete()) {
-            return redirect()->route('user.index')->with('successMessage','user has been successfully deleted');
+            return redirect()->route('user.index')->with('successMessage','User has been successfully deleted');
         } else {
             return back()->with('errorMessage','Unable to delete user from database. Contact admin');
         }

@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('code')->unique();
             $table->string('name');
             $table->string('description')->nullable();
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

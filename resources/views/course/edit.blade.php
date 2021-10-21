@@ -17,17 +17,23 @@
                             <form action="{{ route('course.update', $course->id) }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="code" class="col-sm-2 col-form-label">Code</label>
+                                    <label for="code" class="col-sm-2 col-form-label">
+                                        Code
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="code" name="code"
-                                            value="{{ $course->code }}">
+                                            value="{{ $course->code }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                    <label for="name" class="col-sm-2 col-form-label">
+                                        Name
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ $course->name }}">
+                                            value="{{ $course->name }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -38,10 +44,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="is_active" class="col-sm-2 col-form-label">Status</label>
+                                    <label for="is_active" class="col-sm-2 col-form-label">
+                                        Status
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="is_active" name="is_active"
-                                            value="{{ $course->is_active }}">
+                                            value="{{ $course->is_active }}" required>
                                     </div>
                                 </div>
                                 <div>

@@ -17,31 +17,36 @@
                             <form action="{{ route('user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                    <label for="name" class="col-sm-2 col-form-label">
+                                        Name
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ $user->name }}">
+                                            value="{{ $user->name }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="email" class="col-sm-2 col-form-label">No. email</label>
+                                    <label for="email" class="col-sm-2 col-form-label">
+                                        Email
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="email" name="email"
-                                            value="{{ $user->email }}">
+                                            value="{{ $user->email }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="password" class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="password" name="password"
-                                            value="{{ $user->password }}">
+                                        <input type="text" class="form-control" id="password" name="password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="profile_img" class="col-sm-2 col-form-label">Profile Image</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="profile_img" name="profile_img"
-                                            value="{{ $user->profile_img }}">
+                                        <img src="{{ asset(Auth::user()->profile_img) }}" alt="User Image" width="150">
+                                        <input type="file" class="form-control-file" id="profile_img" name='profile_img'>
                                     </div>
                                 </div>
                                 <div>

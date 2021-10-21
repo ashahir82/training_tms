@@ -17,45 +17,63 @@
                             <form action="{{ route('student.update', $student->id) }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                    <label for="name" class="col-sm-2 col-form-label">
+                                        Name
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="name" name="name"
-                                            value="{{ $student->name }}">
+                                            value="{{ $student->name }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="ic" class="col-sm-2 col-form-label">No. IC</label>
+                                    <label for="ic" class="col-sm-2 col-form-label">
+                                        No. IC
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="ic" name="ic"
-                                            value="{{ $student->ic }}">
+                                            value="{{ $student->ic }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="ndp" class="col-sm-2 col-form-label">NDP</label>
+                                    <label for="ndp" class="col-sm-2 col-form-label">
+                                        NDP
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="ndp" name="ndp"
-                                            value="{{ $student->ndp }}">
+                                            value="{{ $student->ndp }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="tel_no" class="col-sm-2 col-form-label">No. Tel</label>
+                                    <label for="tel_no" class="col-sm-2 col-form-label">
+                                        No. Tel
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="tel_no" name="tel_no"
-                                            value="{{ $student->tel_no }}">
+                                            value="{{ $student->tel_no }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+                                    <label for="gender" class="col-sm-2 col-form-label">
+                                        Gender
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="gender" name="gender"
-                                            value="{{ $student->gender }}">
+                                            value="{{ $student->gender }}" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="course_id" class="col-sm-2 col-form-label">Course</label>
+                                    <label for="course_id" class="col-sm-2 col-form-label">
+                                        Course
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="course_id" name="course_id"
-                                            value="{{ $student->course_id }}">
+                                            value="{{ $student->course_id }}" required>
                                     </div>
                                 </div>
                                 <div>

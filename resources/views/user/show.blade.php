@@ -39,22 +39,7 @@
                                 <div class="form-group row">
                                     <label for="profile_img" class="col-sm-2 col-form-label">Profile Image</label>
                                     <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="profile_img"
-                                            value="{{ $user->profile_img }}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="gender" class="col-sm-2 col-form-label">Gender</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="gender"
-                                            value="{{ $user->gender }}">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="course_id" class="col-sm-2 col-form-label">Course</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" readonly class="form-control-plaintext" id="course_id"
-                                            value="{{ $user->course_id }}">
+                                        <img src="{{ asset(Auth::user()->profile_img) }}" alt="User Image" width="150">
                                     </div>
                                 </div>
                                 <div>

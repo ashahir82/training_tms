@@ -17,15 +17,21 @@
                             <form action="{{ route('course.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
-                                    <label for="code" class="col-sm-2 col-form-label">Code</label>
+                                    <label for="code" class="col-sm-2 col-form-label">
+                                        Code
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="code" name="code">
+                                        <input type="text" class="form-control" id="code" name="code" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                    <label for="name" class="col-sm-2 col-form-label">
+                                        Name
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="name" name="name">
+                                        <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -35,10 +41,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="is_active" class="col-sm-2 col-form-label">Status</label>
+                                    <label for="is_active" class="col-sm-2 col-form-label">
+                                        Status
+                                        <span class="text-danger"> * </span>
+                                    </label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="is_active" name="is_active">
-                                        @include()
+                                        <input type="text" class="form-control" id="is_active" name="is_active" required>
                                     </div>
                                 </div>
                                 <div>
