@@ -49,8 +49,14 @@ class CourseController extends Controller
         $course->name = $request->input('name');
         $course->description = $request->input('description');
         $course->is_active = $request->input('is_active');
-        $course->save();
-        return redirect()->route('course.index');
+        // $course->save();
+        // return redirect()->route('course.index');
+
+        if ($course->save()) {
+            return redirect()->route('course.index')->with('successMessage','Course has been successfully created');
+        } else {
+            return back()->with('errorMessage','Unable to create course into database. Contact admin');
+        }
     }
 
     /**
@@ -98,8 +104,13 @@ class CourseController extends Controller
         $course->name = $request->input('name');
         $course->description = $request->input('description');
         $course->is_active = $request->input('is_active');
-        $course->save();
-        return redirect()->route('course.index');
+        // $course->save();
+        // return redirect()->route('course.index');
+        if ($course->save()) {
+            return redirect()->route('course.index')->with('successMessage','Course has been successfully updated');
+        } else {
+            return back()->with('errorMessage','Unable to update course into database. Contact admin');
+        }
     }
 
     /**
@@ -112,7 +123,12 @@ class CourseController extends Controller
     {
         //
         $course = Course::findOrFail($id);
-        $course->delete();
-        return redirect()->route('course.index');
+        // $course->delete();
+        // return redirect()->route('course.index');
+        if ($course->delete()) {
+            return redirect()->route('course.index')->with('successMessage','Course has been successfully deleted');
+        } else {
+            return back()->with('errorMessage','Unable to delete course from database. Contact admin');
+        }
     }
 }

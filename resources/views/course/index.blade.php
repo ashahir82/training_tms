@@ -2,6 +2,7 @@
 
 @section('content')
     @include('layouts.contentheader')
+    @include('layouts.notification')
 
     <!-- Main content -->
     <section class="content">
@@ -42,7 +43,7 @@
                                             <td>
                                                 <a href="{{ route('course.show', $course->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
                                                 <a href="{{ route('course.edit', $course->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></button>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash-alt"></i></button>
                                             </td>
                                         </tr>
                                     @endforeach
