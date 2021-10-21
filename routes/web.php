@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TempahanKenderaanControlller;
+use App\Http\Controllers\UserController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -36,25 +37,38 @@ Route::get('tempahan-kenderaan', [TempahanKenderaanControlller::class, 'index'])
 // Route::post('/store', [StudentController::class, 'store'])->name('student.store');
 // Route::post('/update/{id}', [StudentController::class, 'update']);
 
-Route::prefix('student')->as('student.')->group(function(){
-    Route::get('/', [StudentController::class, 'index'])->name('index');
-    Route::get('/create', [StudentController::class, 'create'])->name('create');
-    Route::get('/show/{id}', [StudentController::class, 'show'])->name('show');
-    Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('edit');
-    Route::get('/destroy/{id}', [StudentController::class, 'destroy'])->name('destroy');
+Route::middleware('auth')->group(function() {
+    Route::prefix('student')->as('student.')->group(function(){
+        Route::get('/', [StudentController::class, 'index'])->name('index');
+        Route::get('/create', [StudentController::class, 'create'])->name('create');
+        Route::get('/show/{id}', [StudentController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('edit');
+        Route::get('/destroy/{id}', [StudentController::class, 'destroy'])->name('destroy');
 
 
-    Route::post('/store', [StudentController::class, 'store'])->name('store');
-    Route::post('/update/{id}', [StudentController::class, 'update'])->name('update');
-});
+        Route::post('/store', [StudentController::class, 'store'])->name('store');
+        Route::post('/update/{id}', [StudentController::class, 'update'])->name('update');
+    });
 
-Route::prefix('course')->as('course.')->group(function(){
-    Route::get('/', [CourseController::class, 'index'])->name('index');
-    Route::get('/create', [CourseController::class, 'create'])->name('create');
-    Route::get('/show/{id}', [CourseController::class, 'show'])->name('show');
-    Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('edit');
-    Route::get('/destroy/{id}', [CourseController::class, 'destroy'])->name('destroy');
+    Route::prefix('course')->as('course.')->group(function(){
+        Route::get('/', [CourseController::class, 'index'])->name('index');
+        Route::get('/create', [CourseController::class, 'create'])->name('create');
+        Route::get('/show/{id}', [CourseController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('edit');
+        Route::get('/destroy/{id}', [CourseController::class, 'destroy'])->name('destroy');
 
-    Route::post('/store', [CourseController::class, 'store'])->name('store');
-    Route::post('/update/{id}', [CourseController::class, 'update'])->name('update');
+        Route::post('/store', [CourseController::class, 'store'])->name('store');
+        Route::post('/update/{id}', [CourseController::class, 'update'])->name('update');
+    });
+
+    Route::prefix('user')->as('user.')->group(function(){
+        Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::get('/create', [UserController::class, 'create'])->name('create');
+        Route::get('/show/{id}', [UserController::class, 'show'])->name('show');
+        Route::get('/edit/{id}', [UserController::class, 'edit'])->name('edit');
+        Route::get('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
+
+        Route::post('/store', [UserController::class, 'store'])->name('store');
+        Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
+    });
 });

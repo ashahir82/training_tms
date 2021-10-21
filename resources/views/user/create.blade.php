@@ -14,14 +14,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ route('course.store') }}" method="POST">
+                            <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group row">
-                                    <label for="code" class="col-sm-2 col-form-label">Code</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="code" name="code">
-                                    </div>
-                                </div>
                                 <div class="form-group row">
                                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                                     <div class="col-sm-10">
@@ -29,20 +23,25 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                    <label for="email" class="col-sm-2 col-form-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="description" name="description">
+                                        <input type="text" class="form-control" id="email" name="email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="is_active" class="col-sm-2 col-form-label">Status</label>
+                                    <label for="password" class="col-sm-2 col-form-label">Password</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="is_active" name="is_active">
-                                        @include()
+                                        <input type="text" class="form-control" id="password" name='password'>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="profile_img" class="col-sm-2 col-form-label">Profile Image</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control" id="profile_img" name='profile_img'>
                                     </div>
                                 </div>
                                 <div>
-                                    <a class="btn btn-success" href="{{ route('course.index') }}" role="button"><i class="fas fa-arrow-circle-left"></i></a>
+                                    <a class="btn btn-success" href="{{ route('user.index') }}" role="button"><i class="fas fa-arrow-circle-left"></i></a>
                                     <button type="submit" class="btn btn-primary">Create</button>
                                 </div>
                             </form>

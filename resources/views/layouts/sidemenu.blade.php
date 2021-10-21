@@ -11,10 +11,10 @@
         <!-- Sidebar user (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                <img src="{{ asset(Auth::user()->profile_img) }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
 
@@ -34,18 +34,14 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('student.index') }}"
-                                class="nav-link {{ request()->route()->named('student.index')
-    ? 'active'
-    : '' }}">
+                                class="nav-link {{ request()->route()->named('student.index') ? 'active' : '' }}">
                                 <i class="fas fa-list nav-icon text-primary"></i>
                                 <p>List</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('student.create') }}"
-                                class="nav-link {{ request()->route()->named('student.create')
-    ? 'active'
-    : '' }}">
+                                class="nav-link {{ request()->route()->named('student.create') ? 'active' : '' }}">
                                 <i class="fas fa-plus nav-icon text-success"></i>
                                 <p>Create</p>
                             </a>
@@ -63,18 +59,39 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{ route('course.index') }}"
-                                class="nav-link {{ request()->route()->named('course.index')
-    ? 'active'
-    : '' }}">
+                                class="nav-link {{ request()->route()->named('course.index') ? 'active' : '' }}">
                                 <i class="fas fa-list nav-icon text-primary"></i>
                                 <p>List</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('course.create') }}"
-                                class="nav-link {{ request()->route()->named('course.create')
-    ? 'active'
-    : '' }}">
+                                class="nav-link {{ request()->route()->named('course.create') ? 'active' : '' }}">
+                                <i class="fas fa-plus nav-icon text-success"></i>
+                                <p>Create</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item {{ request()->segment(1) == 'user' ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ request()->segment(1) == 'user' ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-school"></i>
+                        <p>
+                            Profile
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('user.index') }}"
+                                class="nav-link {{ request()->route()->named('user.index') ? 'active' : '' }}">
+                                <i class="fas fa-list nav-icon text-primary"></i>
+                                <p>List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.create') }}"
+                                class="nav-link {{ request()->route()->named('user.create') ? 'active' : '' }}">
                                 <i class="fas fa-plus nav-icon text-success"></i>
                                 <p>Create</p>
                             </a>
