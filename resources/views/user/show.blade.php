@@ -39,7 +39,7 @@
                                 <div class="form-group row">
                                     <label for="profile_img" class="col-sm-2 col-form-label">Profile Image</label>
                                     <div class="col-sm-10">
-                                        <img src="{{ asset(Auth::user()->profile_img) }}" alt="User Image" width="150">
+                                        <img src="{{ asset($user->profile_img) }}" alt="User Image" width="150">
                                     </div>
                                 </div>
                                 <div>
